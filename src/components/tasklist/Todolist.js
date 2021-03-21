@@ -18,28 +18,28 @@ export const Todolist = ({
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th size="sm">S/N</th>
+            {/* <th size="sm">S/N</th> */}
             <th>Task</th>
             <th>Duration</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {taskLists.map((item, i) => (
+          {taskLists.map((row, i) => (
             <tr>
-              <td>
+              <td key={i}>
                 <input
                   type="checkbox"
                   defaultValue={i}
                   onChange={handleOnChange}
                 />
+                {row?.title}
               </td>
-              <td>{item?.title}</td>
-              <td>{item?.hr}</td>
+              <td>{row?.hr}</td>
               <td>
                 <button onClick={() => handleOnMarkAsNotToDo(i)}>
                   {""}
-                  Mark As Not To Do
+                  -->>Not To Do List
                 </button>
               </td>
             </tr>
